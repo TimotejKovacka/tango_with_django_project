@@ -12,4 +12,8 @@ def index(request):
 
 
 def about(request):
-    return HttpResponse("Rango says here is the about page <a href='/rango/'>Index</a>")
+    return render(request, 'rango/about.html')
+
+def vader(request):
+    context_dict = {'links': 'Main page'}
+    return render(request, 'rango/darth_vader.html', context=context_dict)
