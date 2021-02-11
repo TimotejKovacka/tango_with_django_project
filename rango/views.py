@@ -33,6 +33,7 @@ def vader(request):
 
 def show_category(request, category_name_slug):
     context_dict = {}
+    print("category_name_slug", category_name_slug)
     try:
         category = Category.objects.get(slug=category_name_slug)
         pages = Page.objects.filter(category=category)
@@ -41,6 +42,7 @@ def show_category(request, category_name_slug):
     except Category.DoesNotExist:
         context_dict['category'] = None
         context_dict['pages'] = None
+    print(context_dict)
     return render(request, 'rango/category.html', context=context_dict)
 
 @login_required
